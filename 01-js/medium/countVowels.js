@@ -5,8 +5,12 @@
   Once you've implemented the logic, test your code by running
 */
 
+
 function countVowels(str) {
-    // Your code here
+  // Your code here
+  let str1=str.toUpperCase();
+  let arr=str1.match(/[AEIOU]/g)||[];
+  return arr.length;
 }
 
 module.exports = countVowels;
