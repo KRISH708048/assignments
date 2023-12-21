@@ -12,9 +12,22 @@
 	}
   Output - [{ category: 'Food', totalSpent: 10 }] // Can have multiple categories, only one example is mentioned here
 */
-
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let result = [];
+transactions.forEach(element => {
+  // Check if the category is already in the result list
+  const categoryIndex = result.findIndex(item => item.category === element.category);
+
+  if (categoryIndex !== -1) {
+    // If category exists, update the totalSpent
+    result[categoryIndex].totalSpent += element.price;
+  } else {
+    // If category doesn't exist, add a new entry
+    result.push({ category: element.category, totalSpent: element.price });
+  }
+});
+
+return result;
 }
 
 module.exports = calculateTotalSpentByCategory;
